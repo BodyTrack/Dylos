@@ -87,6 +87,4 @@ sub write_to_files
 
 close(INFIL);
 close(OUTFIL6CH);
-close(OUTFIL2CH);	
-		
-
+close(OUTFIL2CH);
