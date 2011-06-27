@@ -4,7 +4,6 @@
 #exponential weighted average filter. The -2ch.csv file is "columns" 1-3 and 4-6 added together.
 #Written by Nolan Hergert for BodyTrack, Summer 2011
 
-
 use strict;
 use warnings;
 
