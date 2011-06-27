@@ -4,6 +4,7 @@
 #exponential weighted average filter. The -2ch.csv file is "columns" 1-3 and 4-6 added together.
 #Written by Nolan Hergert for BodyTrack, Summer 2011
 
+
 use strict;
 use warnings;
 
@@ -19,6 +20,19 @@ my $timeOld;			#Old Timestamp
 my @averages;			#Average array
 my $count;				#Helper var
 my $republish = 0;
+
+sub usage {
+    print STDERR "Usage:\n";    
+    print STDERR "dylos6ch.pl [6 channel dylos data file]\n";
+    my @candidate_files = glob("*-6ch-*");
+    if(scalar(@candidate_files)) {
+	print STDERR "Example:\n";
+	print STDERR " dylos6ch.pl $candidate_files[0]\n";
+    }
+    exit 1;
+}
+
+if (!scalar(@ARGV)) { usage(); }
 
 my $name = `basename $ARGV[0] .csv`;
 chomp($name);
@@ -87,4 +101,6 @@ sub write_to_files
 
 close(INFIL);
 close(OUTFIL6CH);
-close(OUTFIL2CH);
+close(OUTFIL2CH);	
+		
+
